@@ -37,6 +37,6 @@ def generate_summary_for_json(api_url):
     return response.choices[0].message.content
 
 
-api_url = "https://ipfo54urs5.execute-api.ap-south-1.amazonaws.com/portfolioprofile/?riskprofile=3"
+api_url = "API_URL_HERE"
 summary = generate_summary_for_json(api_url)
 print(summary)
