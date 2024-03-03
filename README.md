@@ -18,7 +18,7 @@ pip install openai requests
 
 ## Usage
 ```python
-python summarize_json.py
+python app.py
 ```
 
 ## Configuration
