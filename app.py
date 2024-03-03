@@ -37,6 +37,6 @@ def generate_summary_for_json(api_url):
     return response.choices[0].message.content
 
 
-api_url = "API_URL_HERE"
+api_url = "API_ENDPOINT_HERE"
 summary = generate_summary_for_json(api_url)
 print(summary)
