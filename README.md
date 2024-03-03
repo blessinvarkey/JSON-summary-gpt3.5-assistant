@@ -1,4 +1,4 @@
-# JSON-summary-gpt-assistant
+# JSON-summary-gpt3.5-assistant
 
 A small project to explore fetching JSON data from an API endpoint and generate summaries using OpenAI's GPT-3.5 Turbo. 
 
