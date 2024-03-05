@@ -1,7 +1,7 @@
 import requests
 from openai import OpenAI
 
-client = OpenAI(api_key='add your OPENAI API Key here')
+client = OpenAI(api_key='OPENAI_API')
 
 
 def fetch_json_from_api(url):
@@ -12,14 +12,20 @@ def fetch_json_from_api(url):
         return None
 
 
+def fetch_json_from_api(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.text  # Returns raw JSON string
+    else:
+        return None
+
+
 def generate_summary_for_json(api_url):
-    json_data = fetch_json_from_api(api_url)
-    if json_data is None:
+    json_str = fetch_json_from_api(api_url)  # Raw JSON string
+    if json_str is None:
         return "Failed to fetch or parse JSON data from the API."
 
-    json_str = str(json_data).replace("'", "\"")
-
-    system_message = "You are a helpful assistant. You will generate a summary of the JSON file I provide."
+    system_message = "You are a helpful assistant. You will generate a summary of the JSON file."
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -36,7 +42,6 @@ def generate_summary_for_json(api_url):
 
     return response.choices[0].message.content
 
-
-api_url = "API_ENDPOINT_HERE"
+api_url = "ENDPOINT_URL"
 summary = generate_summary_for_json(api_url)
 print(summary)
